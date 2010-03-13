@@ -1,0 +1,5 @@
+package imperative
+
+class SimpleImperative {
+
+}
