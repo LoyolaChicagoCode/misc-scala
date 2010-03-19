@@ -47,8 +47,8 @@ object Execute {
     case Variable(name) => store(name)
     case Assignment(left, right) => {
       val lvalue = apply(store)(left)
-      val rvalue = apply(store)(right).get
-      lvalue.set(rvalue)
+      val rvalue = apply(store)(right)
+      lvalue.set(rvalue.get)
     }
     case Sequence(statements @ _*) =>
       statements.foldLeft(Cell.NULL.asInstanceOf[LValue[Int]])((c, s) => Execute(store)(s))
