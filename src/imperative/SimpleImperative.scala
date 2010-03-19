@@ -1,5 +1,0 @@
-package imperative
-
-class SimpleImperative {
-
-}
