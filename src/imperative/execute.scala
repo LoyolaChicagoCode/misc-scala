@@ -51,12 +51,12 @@ object Execute {
       lvalue.set(rvalue.get)
     }
     case Sequence(statements @ _*) =>
-      statements.foldLeft(Cell.NULL.asInstanceOf[LValue[Int]])((c, s) => Execute(store)(s))
+      statements.foldLeft(Cell.NULL.asInstanceOf[LValue[Int]])((c, s) => apply(store)(s))
     case While(guard, body) => {
-      var gvalue = Execute(store)(guard)
+      var gvalue = apply(store)(guard)
       while (gvalue.get != 0) {
-        Execute(store)(body)
-        gvalue = Execute(store)(guard)
+        apply(store)(body)
+        gvalue = apply(store)(guard)
       }
       Cell.NULL
     }
