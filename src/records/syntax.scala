@@ -1,7 +1,5 @@
 package records
 
-import scala.collection.immutable.Stack
-
 /**
  * An abstract superclass for concrete Statement implementation classes.
  */
@@ -53,4 +51,7 @@ case class Selection(receiver: Statement, field: String) extends Statement {
  * Syntax for record types. Not part of the Statement hierarchy
  * because they appear only as arguments to New Statements.
  */
-case class Clazz(fields: String*)
+case class Clazz(fields: String*) {
+  require(fields != null)
+  require(! fields.contains(null))
+}
