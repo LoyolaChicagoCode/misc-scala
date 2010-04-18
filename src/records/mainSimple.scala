@@ -1,7 +1,5 @@
 package records
 
-import scala.collection.immutable.HashMap
-
 object mainSimple {
 
   val studentCourseRecord = Clazz("firstExamScore", "secondExamScore", "totalScore")

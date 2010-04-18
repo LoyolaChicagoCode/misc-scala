@@ -1,7 +1,5 @@
 package records
 
-import scala.collection.immutable.HashMap
-
 object mainRecursive {
 
   val store = Map[String, Cell](
