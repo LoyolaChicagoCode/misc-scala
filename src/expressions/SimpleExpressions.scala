@@ -1,5 +1,0 @@
-package expressions
-
-class SimpleExpressions {
-
-}

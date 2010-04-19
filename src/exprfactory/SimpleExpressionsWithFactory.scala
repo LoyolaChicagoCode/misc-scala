@@ -1,5 +1,0 @@
-package exprfactory
-
-class SimpleExpressionsWithFactory {
-
-}
