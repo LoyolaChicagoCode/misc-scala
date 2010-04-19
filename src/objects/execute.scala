@@ -46,7 +46,7 @@ object Execute {
     case Minus(left, right) => binaryOperation(store, left, right, _-_)
     case Times(left, right) => binaryOperation(store, left, right, _*_)
     case Div(left, right) => binaryOperation(store, left, right, _/_)
-    case Variable(name) => store._1.apply(name)
+    case Variable(name) => store._1(name)
     case Assignment(left, right) => {
       val lvalue = apply(store)(left)
       val rvalue = apply(store)(right)
@@ -74,13 +74,13 @@ object Execute {
     case Selection(receiver, field) => {
       // assume the expression evaluates to a record (.right)
       // and choose the desired field
-      apply(store)(receiver).get.right.get._1.apply(field)
+      apply(store)(receiver).get.right.get._1(field)
     }
     case Message(receiver, method, arguments @ _*) => {
       // evaluate receiver expression to a Cell containing an Instance
       val rec = apply(store)(receiver)
       // look up method in the Instance's second component (method table)
-      val meth = rec.get.right.get._2.apply(method)
+      val meth = rec.get.right.get._2(method)
       // evaluate the arguments
       val args = arguments.map(apply(store))
       // create argument bindings "0" -> arg(0), "1" -> arg(1), etc.
