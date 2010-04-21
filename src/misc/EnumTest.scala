@@ -14,7 +14,7 @@ object EnumTest {
 	def main(args:Array[String]) {
 		Cow.Color.WHITE.compareTo(Cow.Color.SPOTTED)
 		println(Cow.Color.WHITE)
-		for (c <- Cow.Color)
+		for (c <- Cow.Color.values)
 			println(c.hashCode)
 	}
 }
