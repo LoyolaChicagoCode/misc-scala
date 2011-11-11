@@ -2,9 +2,9 @@ package objects
 
 object mainSimple {
 
-  val studentCourseRecord = () => new Clazz("firstExamScore", "secondExamScore", "totalScore")
-  val studentSemRecord = () => new Clazz("course1", "course2")
-  
+  val studentCourseRecord = new Clazz("firstExamScore", "secondExamScore", "totalScore")
+  val studentSemRecord = new Clazz("course1", "course2")
+
   val store: Execute.Store = (Map[String, Cell](
     "q" -> Cell(0),
     "r" -> Cell(0)

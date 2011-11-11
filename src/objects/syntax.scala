@@ -38,12 +38,20 @@ case class Assignment(left: Statement, right: Statement) extends BinaryStatement
 
 /**
  * Syntax for statements for creating and using records.
- * The argument to the New constructor is a function that returns a Clazz
- * so that Clazzes can refer to themselves (for creating new instances
- * of themselves etc.; please see myInt).
+ * New is implemented as a non-case class to allow the constructor
+ * argument to be by-name. The companion object adds back the syntactic
+ * sugar to make it look like a case class.
  */
-case class New(fClazz: () => Clazz) extends Statement {
-  require(fClazz != null)
+class New(c: => Clazz) extends Statement {
+  require(c != null)
+  val clazz = c
+}
+object New {
+  def apply(clazz: => Clazz) = new New(clazz)
+  def unapply(s: Statement) = s match {
+    case n: New => Some(n.clazz)
+    case _ => None
+  }
 }
 case class Selection(receiver: Statement, field: String) extends Statement {
   require(receiver != null)

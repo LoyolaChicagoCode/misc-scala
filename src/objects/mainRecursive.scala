@@ -8,7 +8,7 @@ object mainRecursive {
     "s" -> Cell(0)
   ), Map())
 
-  val listNode = () => new Clazz("value", "next")
+  val listNode = new Clazz("value", "next")
 
   /*
    * n = new ListNode

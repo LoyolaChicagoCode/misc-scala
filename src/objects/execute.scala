@@ -62,10 +62,7 @@ object Execute {
       }
       Cell.NULL
     }
-    case New(fClazz) => {
-      // apply the fClazz to obtain a Clazz instance
-      // and use pattern matching to obtain the constituents
-      val Clazz(fields, methods) = fClazz()
+    case New(Clazz(fields, methods)) => {
       // create an object based on the list of field names and methods
       val fs = Map(fields.map(field => (field, Cell(0))): _*)
       val ms = Map(methods: _*)
