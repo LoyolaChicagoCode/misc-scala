@@ -31,7 +31,7 @@ case class Variable(name: String) extends Statement {
 }
 case class Sequence(statements: Statement*) extends Statement {
   require(statements != null)
-  require(! statements.contains(null))
+  require(!statements.contains(null))
 }
 case class While(guard: Statement, body: Statement) extends BinaryStatement(guard, body)
 case class Assignment(left: Statement, right: Statement) extends BinaryStatement(left, right)
@@ -50,7 +50,7 @@ object New {
   def apply(clazz: => Clazz) = new New(clazz)
   def unapply(s: Statement) = s match {
     case n: New => Some(n.clazz)
-    case _ => None
+    case _      => None
   }
 }
 case class Selection(receiver: Statement, field: String) extends Statement {
@@ -61,7 +61,7 @@ case class Message(receiver: Statement, method: String, arguments: Statement*) e
   require(receiver != null)
   require(method != null)
   require(arguments != null)
-  require(! arguments.contains(null))
+  require(!arguments.contains(null))
 }
 
 /**
@@ -72,9 +72,9 @@ case class Message(receiver: Statement, method: String, arguments: Statement*) e
  */
 case class Clazz(fields: Seq[String], methods: Seq[(String, (Seq[String], Statement))]) {
   require(fields != null)
-  require(! fields.contains(null))
+  require(!fields.contains(null))
   require(methods != null)
-  require(! methods.contains(null))
+  require(!methods.contains(null))
 
   def this(fields: String*) = this(fields, Seq())
 }

@@ -1,13 +1,13 @@
 package objects
 
-import Execute.{Store,Value}
+import Execute.{ Store, Value }
 
 /**
  * A cell for storing a value (either a number or an object).
  */
 case class Cell(var value: Value) {
   def get = value
-  def set(value: Value) = { this.value = value ; this }
+  def set(value: Value) = { this.value = value; this }
 }
 
 /**
@@ -41,12 +41,12 @@ object Execute {
   type Value = Either[Int, Instance]
 
   def apply(store: Store)(s: Statement): Cell = s match {
-    case Constant(value) => Cell(Left(value))
-    case Plus(left, right) => binaryOperation(store, left, right, _+_)
-    case Minus(left, right) => binaryOperation(store, left, right, _-_)
-    case Times(left, right) => binaryOperation(store, left, right, _*_)
-    case Div(left, right) => binaryOperation(store, left, right, _/_)
-    case Variable(name) => store._1(name)
+    case Constant(value)    => Cell(Left(value))
+    case Plus(left, right)  => binaryOperation(store, left, right, _ + _)
+    case Minus(left, right) => binaryOperation(store, left, right, _ - _)
+    case Times(left, right) => binaryOperation(store, left, right, _ * _)
+    case Div(left, right)   => binaryOperation(store, left, right, _ / _)
+    case Variable(name)     => store._1(name)
     case Assignment(left, right) => {
       val rvalue = apply(store)(right)
       val lvalue = apply(store)(left)

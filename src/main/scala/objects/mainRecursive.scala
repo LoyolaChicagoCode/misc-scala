@@ -26,7 +26,6 @@ object mainRecursive {
    * }
    */
 
-
   val s =
     Sequence(
       Assignment(Variable("n"), New(listNode)),

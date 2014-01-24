@@ -31,7 +31,7 @@ case class Variable(name: String) extends Statement {
 }
 case class Sequence(statements: Statement*) extends Statement {
   require(statements != null)
-  require(! statements.contains(null))
+  require(!statements.contains(null))
 }
 case class While(guard: Statement, body: Statement) extends BinaryStatement(guard, body)
 case class Assignment(left: Statement, right: Statement) extends BinaryStatement(left, right)
@@ -53,5 +53,5 @@ case class Selection(receiver: Statement, field: String) extends Statement {
  */
 case class Clazz(fields: String*) {
   require(fields != null)
-  require(! fields.contains(null))
+  require(!fields.contains(null))
 }

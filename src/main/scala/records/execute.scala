@@ -1,13 +1,13 @@
 package records
 
-import Execute.{Store,Value}
+import Execute.{ Store, Value }
 
 /**
  * A cell for storing a value (either a number or an object).
  */
-case class Cell(var value: Value){
+case class Cell(var value: Value) {
   def get = value
-  def set(value: Value) = { this.value = value ; this }
+  def set(value: Value) = { this.value = value; this }
 }
 
 /**
@@ -36,15 +36,15 @@ object Execute {
   /**
    * A run-time value is either a number or an object.
    */
-  type Value = Either[Int,Instance]
+  type Value = Either[Int, Instance]
 
   def apply(store: Store)(s: Statement): Cell = s match {
-    case Constant(value) => Cell(Left(value))
-    case Plus(left, right) => binaryOperation(store, left, right, _+_)
-    case Minus(left, right) => binaryOperation(store, left, right, _-_)
-    case Times(left, right) => binaryOperation(store, left, right, _*_)
-    case Div(left, right) => binaryOperation(store, left, right, _/_)
-    case Variable(name) => store(name)
+    case Constant(value)    => Cell(Left(value))
+    case Plus(left, right)  => binaryOperation(store, left, right, _ + _)
+    case Minus(left, right) => binaryOperation(store, left, right, _ - _)
+    case Times(left, right) => binaryOperation(store, left, right, _ * _)
+    case Div(left, right)   => binaryOperation(store, left, right, _ / _)
+    case Variable(name)     => store(name)
     case Assignment(left, right) => {
       val rvalue = apply(store)(right)
       val lvalue = apply(store)(left)
@@ -60,7 +60,7 @@ object Execute {
       }
       Cell.NULL
     }
-    case New(Clazz(fields @ _*)) => 
+    case New(Clazz(fields @ _*)) =>
       // create an object based on the list of field names in the clazz
       Cell(Right(Map(fields.map(field => (field, Cell(0))): _*)))
     case Selection(record, field) => {
