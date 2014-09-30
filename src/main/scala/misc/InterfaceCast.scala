@@ -12,8 +12,8 @@ object InterfaceCast {
   }
 
   def main(args: Array[String]) {
-    val x = new K()
-    println((x.asInstanceOf[J]).g());
+    val x = new K
+    println((x.asInstanceOf[J]).g())
   }
 }
 
