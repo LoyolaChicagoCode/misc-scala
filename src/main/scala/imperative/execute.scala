@@ -2,38 +2,28 @@ package imperative
 
 import scala.collection.immutable.Map
 
-/**
- * Something that can be used on the right-hand side of an assignment.
- */
+/** Something that can be used on the right-hand side of an assignment. */
 trait RValue[T] {
   def get: T
 }
 
-/**
- * Something that can be used on the left-hand side of an assignment.
- */
+/** Something that can be used on the left-hand side of an assignment. */
 trait LValue[T] extends RValue[T] {
   def set(value: T): LValue[T]
 }
 
-/**
- * A cell for storing a value.
- */
+/** A cell for storing a value. */
 case class Cell[T](var value: T) extends LValue[T] {
   override def get = value
   override def set(value: T) = { this.value = value; this }
 }
 
-/**
- * A companion object defining a useful Cell instance.
- */
+/** A companion object defining a useful Cell instance. */
 object Cell {
   val NULL = Cell(0)
 }
 
-/**
- * An interpreter for expressions and statements.
- */
+/** An interpreter for expressions and statements. */
 object Execute {
 
   type Store = Map[String, LValue[Int]]
