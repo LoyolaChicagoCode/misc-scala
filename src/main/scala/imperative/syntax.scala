@@ -1,7 +1,7 @@
 package imperative
 
 /** A common trait for concrete Statement implementation classes. */
-abstract class Statement
+trait Statement
 
 /** A binary statement with two non-null children. */
 abstract class BinaryStatement(left: Statement, right: Statement) extends Statement {
