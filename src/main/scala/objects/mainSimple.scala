@@ -16,9 +16,13 @@ object mainSimple {
       Assignment(Selection(Variable("r"), "course1"), New(studentCourseRecord)),
       Assignment(Selection(Selection(Variable("r"), "course1"), "firstExamScore"), Constant(25)),
       Assignment(Selection(Selection(Variable("r"), "course1"), "secondExamScore"), Constant(35)),
-      Assignment(Selection(Selection(Variable("r"), "course1"), "totalScore"),
-        Plus(Selection(Selection(Variable("r"), "course1"), "firstExamScore"),
-          Selection(Selection(Variable("r"), "course1"), "secondExamScore"))),
+      Assignment(
+        Selection(Selection(Variable("r"), "course1"), "totalScore"),
+        Plus(
+          Selection(Selection(Variable("r"), "course1"), "firstExamScore"),
+          Selection(Selection(Variable("r"), "course1"), "secondExamScore")
+        )
+      ),
       Assignment(Selection(Variable("r"), "course2"), Selection(Variable("r"), "course1")),
       Assignment(Variable("q"), Selection(Selection(Variable("r"), "course2"), "totalScore")),
       Assignment(Selection(Selection(Variable("r"), "course1"), "firstExamScore"), Constant(45))
