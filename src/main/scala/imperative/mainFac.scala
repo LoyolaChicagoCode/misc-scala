@@ -11,7 +11,8 @@ object mainFac {
   val s =
     Sequence(
       Assignment(Variable("r"), Constant(1)),
-      While(Minus(Variable("x"), Variable("i")),
+      While(
+        Minus(Variable("x"), Variable("i")),
         Sequence(
           Assignment(Variable("i"), Plus(Variable("i"), Constant(1))),
           Assignment(Variable("r"), Times(Variable("r"), Variable("i")))

@@ -50,7 +50,7 @@ object New {
   def apply(clazz: => Clazz) = new New(clazz)
   def unapply(s: Statement) = s match {
     case n: New => Some(n.clazz)
-    case _      => None
+    case _ => None
   }
 }
 case class Selection(receiver: Statement, field: String) extends Statement {

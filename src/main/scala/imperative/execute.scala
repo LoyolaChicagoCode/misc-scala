@@ -29,12 +29,12 @@ object Execute {
   type Store = Map[String, LValue[Int]]
 
   def apply(store: Store)(s: Statement): LValue[Int] = s match {
-    case Constant(value)    => Cell(value)
-    case Plus(left, right)  => Cell(apply(store)(left).get + apply(store)(right).get)
+    case Constant(value) => Cell(value)
+    case Plus(left, right) => Cell(apply(store)(left).get + apply(store)(right).get)
     case Minus(left, right) => Cell(apply(store)(left).get - apply(store)(right).get)
     case Times(left, right) => Cell(apply(store)(left).get * apply(store)(right).get)
-    case Div(left, right)   => Cell(apply(store)(left).get / apply(store)(right).get)
-    case Variable(name)     => store(name)
+    case Div(left, right) => Cell(apply(store)(left).get / apply(store)(right).get)
+    case Variable(name) => store(name)
     case Assignment(left, right) => {
       val rvalue = apply(store)(right)
       val lvalue = apply(store)(left)
