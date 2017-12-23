@@ -1,43 +1,43 @@
 package objects
 
-import Execute.{ Store, Value }
+import Execute.{Store, Value}
 
 /**
- * A cell for storing a value (either a number or an object).
- */
+  * A cell for storing a value (either a number or an object).
+  */
 case class Cell(var value: Value) {
   def get = value
   def set(value: Value) = { this.value = value; this }
 }
 
 /**
- * A companion object defining a useful Cell instance.
- */
+  * A companion object defining a useful Cell instance.
+  */
 object Cell {
   def apply(i: Int): Cell = Cell(Left(i)) // Left -> number, Right -> object
   val NULL = Cell(0)
 }
 
 /**
- * An interpreter for expressions and statements.
- */
+  * An interpreter for expressions and statements.
+  */
 object Execute {
 
   /**
-   * A memory store is now a pair consisting of
-   * 1) a mapping from variable names to storage Cells and
-   * 2) a mapping from method names to methods.
-   */
+    * A memory store is now a pair consisting of
+    * 1) a mapping from variable names to storage Cells and
+    * 2) a mapping from method names to methods.
+    */
   type Store = (Map[String, Cell], Map[String, (Seq[String], Statement)])
 
   /**
-   * An object (instance) is still the same as a memory store.
-   */
+    * An object (instance) is still the same as a memory store.
+    */
   type Instance = Store
 
   /**
-   * A run-time value is either a number or an object.
-   */
+    * A run-time value is either a number or an object.
+    */
   type Value = Either[Int, Instance]
 
   def apply(store: Store)(s: Statement): Cell = s match {

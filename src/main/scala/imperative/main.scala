@@ -3,9 +3,9 @@ package imperative
 object main {
 
   /**
-   * The global memory initialized as follows:
-   * x = 2 , y = 3 , r = 0
-   */
+    * The global memory initialized as follows:
+    * x = 2 , y = 3 , r = 0
+    */
   val store = Map[String, LValue[Int]](
     "x" -> Cell(2),
     "y" -> Cell(3),
@@ -13,9 +13,9 @@ object main {
   )
 
   /**
-   * The program to be interpreted:
-   * while (y) { r = r + x , y = y - 1 }
-   */
+    * The program to be interpreted:
+    * while (y) { r = r + x , y = y - 1 }
+    */
   val s =
     While(
       Variable("y"),
