@@ -2,7 +2,7 @@ package imperative
 
 object mainWithParser {
 
-  val store = Map[String, LValue[Int]](
+  val store = Map[String, Cell](
     "x" -> Cell(2),
     "y" -> Cell(3),
     "r" -> Cell(0)

@@ -6,7 +6,7 @@ object main {
     * The global memory initialized as follows:
     * x = 2 , y = 3 , r = 0
     */
-  val store = Map[String, LValue[Int]](
+  val store = Map[String, Cell](
     "x" -> Cell(2),
     "y" -> Cell(3),
     "r" -> Cell(0)

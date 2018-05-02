@@ -2,7 +2,7 @@ package imperative
 
 object mainFac {
 
-  val store = Map[String, LValue[Int]](
+  val store = Map[String, Cell](
     "x" -> Cell(5),
     "i" -> Cell(0),
     "r" -> Cell(0)
