@@ -9,7 +9,6 @@ object StatementParser extends JavaTokenParsers {
     term ~ "+" ~ term ^^ { case l ~ _ ~ r => Plus(l, r) }
     | term ~ "-" ~ term ^^ { case l ~ _ ~ r => Minus(l, r) }
     | term
-    | factor
   )
 
   /** term ::= factor * factor | factor / factor | factor */
