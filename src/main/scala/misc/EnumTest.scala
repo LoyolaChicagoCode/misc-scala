@@ -11,7 +11,7 @@ package misc
  */
 object EnumTest {
 
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
     Cow.Color.WHITE.compareTo(Cow.Color.SPOTTED)
     println(Cow.Color.WHITE)
     for (c <- Cow.Color.values)

@@ -28,7 +28,7 @@ object mainSimple {
       Assignment(Selection(Selection(Variable("r"), "course1"), "firstExamScore"), Constant(45))
     )
 
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
     println(store)
     Execute(store)(s)
     println(store)

@@ -11,7 +11,7 @@ object InterfaceCast {
     override def g(): Int = 4
   }
 
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
     val x = new K
     println((x.asInstanceOf[J]).g())
   }

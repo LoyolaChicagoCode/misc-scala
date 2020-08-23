@@ -10,7 +10,7 @@ object mainWithParser {
 
   val s = "while (y) { r = r + x, y = y - 1 }"
 
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
     println(s)
     val p = StatementParser.parseAll(StatementParser.statement, s)
     println(p)

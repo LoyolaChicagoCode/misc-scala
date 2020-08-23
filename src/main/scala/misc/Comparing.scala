@@ -5,7 +5,7 @@ import scala.util._
 
 object Comparing {
 
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
     val t1 = new Temp
     t1.tt = 24
     val t2 = new Temp
@@ -96,7 +96,7 @@ object Comparing {
 //Should we be using a trait here? I feel that this should somehow be done
 //with functional programming...
 trait Comparator[Temp] {
-  def compare(o1: Temp, o2: Temp)
+  def compare(o1: Temp, o2: Temp): Int
 }
 
 class Temp extends Ordered[Temp] {

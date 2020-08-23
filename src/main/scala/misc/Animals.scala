@@ -4,14 +4,14 @@ import scala.collection.mutable._
 
 trait Animal {
   var name: String
-  def printName
+  def printName: Unit
   def canMate(a: Animal): Boolean
-  def speak
-  def birth
+  def speak: Unit
+  def birth: Unit
 }
 
 trait Mammal extends Animal {
-  def printName() = print("My name is " + name)
+  def printName = print("My name is " + name)
   def canMate(a: Animal) = a.getClass == this.getClass
   def birth = print("live")
   def birth(n: Int) = print("live" + n)
@@ -32,7 +32,7 @@ class Platypus(var name: String) extends Mammal {
 }
 
 object Animals {
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
     //TODO: confirm that ArrayBuffer is the most appropriate
     //data structure in this case
     val zoo = new ArrayBuffer[Animal]()

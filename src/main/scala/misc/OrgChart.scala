@@ -1,7 +1,7 @@
 package misc
 
 object OrgChart {
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
   }
 }
 

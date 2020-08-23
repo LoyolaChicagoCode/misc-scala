@@ -43,7 +43,7 @@ object mainWithMethods {
           Assignment(Variable("result"), Constant(1)),
           While(Variable("recurse"), Sequence(
             Assignment(Variable("recurse"), Constant(0)),
-            Assignment(Variable("aux"), New(MyInt)),
+            Assignment(Variable("aux"), New(MyInt())),
             Message(Variable("aux"), "set", Minus(Selection(Variable("this"), "value"), Constant(1))),
             Assignment(Variable("result"), Message(Variable("this"), "times", Message(Variable("aux"), "fact")))
           )),
@@ -76,17 +76,17 @@ object mainWithMethods {
    * g = e.fact();
    */
   val c = Sequence(
-    Assignment(Variable("a"), New(MyInt)),
+    Assignment(Variable("a"), New(MyInt())),
     Message(Variable("a"), "set", Constant(5)),
     Assignment(Variable("b"), Message(Variable("a"), "times", Constant(7))),
     Assignment(Variable("d"), Message(Variable("a"), "fact")),
-    Assignment(Variable("e"), New(MyInt)),
+    Assignment(Variable("e"), New(MyInt())),
     Message(Variable("e"), "set", Constant(6)),
     Assignment(Variable("f"), Message(Variable("e"), "times", Constant(5))),
     Assignment(Variable("g"), Message(Variable("e"), "fact"))
   )
 
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
     //    println(store)
     Execute(store)(c)
     //    println(store)

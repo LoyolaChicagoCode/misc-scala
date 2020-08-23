@@ -25,7 +25,7 @@ object main {
       )
     )
 
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
     println(store)
     Execute(store)(s)
     println(store)

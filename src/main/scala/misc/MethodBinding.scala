@@ -1,7 +1,7 @@
 package misc
 
 object MethodBinding {
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
     val x = new Dog2()
     // ...
     x.feed()
