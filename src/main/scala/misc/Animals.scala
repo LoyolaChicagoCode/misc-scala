@@ -44,7 +44,7 @@ object Animals {
     zoo += new Platypus("Plap")
     zoo += new Cat("Winston")
 
-    for (x <- zoo) {
+    for x <- zoo do {
       x.printName
       print(" and I say ")
       x.speak

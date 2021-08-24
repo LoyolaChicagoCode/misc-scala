@@ -61,7 +61,7 @@ object Comparing {
     t11.tt = 19
     s += t11
 
-    for (c <- s) {
+    for c <- s do {
       println(c)
     }
 
@@ -77,18 +77,17 @@ object Comparing {
 
     println(l2)
     Sorting.quickSort(l2.toArray) // use CTemp.compareTo
-    System.out.println(l2)
+    System.out.nn.println(l2)
     Sorting.quickSort(l2.toArray) //TODO: it has to be descending!!!
-    System.out.println(l2)
+    System.out.nn.println(l2)
 
     var s2 = new TreeSet[Temp]
     s2 += new CTemp(24)
     s2 += new CTemp(19)
     s2 += new CTemp(27)
     s2 += new CTemp(19)
-    for (c <- s2) {
+    for c <- s2 do
       println(c)
-    }
     println(l1)
   }
 }
@@ -118,7 +117,7 @@ class Temp extends Ordered[Temp] {
 class CTemp(private var t: Int) extends Temp {
 
   def compareTo(that: CTemp): Int = {
-    if (this == that) return 0
+    if this == that then return 0
     this.t - that.t
   }
 }

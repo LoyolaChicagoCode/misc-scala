@@ -53,7 +53,7 @@ object Execute {
       statements.foldLeft(Cell.NULL)((c, s) => apply(store)(s))
     case While(guard, body) =>
       var gvalue = apply(store)(guard)
-      while (gvalue.get.isRight || gvalue.get.left.toOption.get != 0) {
+      while gvalue.get.isRight || gvalue.get.left.toOption.get != 0 do {
         apply(store)(body)
         gvalue = apply(store)(guard)
       }
