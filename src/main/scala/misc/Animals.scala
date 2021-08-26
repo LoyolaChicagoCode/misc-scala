@@ -1,6 +1,6 @@
 package misc
 
-import scala.collection.mutable._
+import scala.collection.mutable.*
 
 trait Animal {
   var name: String

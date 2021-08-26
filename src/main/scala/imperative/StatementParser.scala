@@ -1,6 +1,6 @@
 package imperative
 
-import scala.util.parsing.combinator._
+import scala.util.parsing.combinator.*
 
 object StatementParser extends JavaTokenParsers {
 

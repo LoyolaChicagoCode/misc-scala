@@ -1,7 +1,7 @@
 package misc
 
-import scala.collection.mutable._
-import scala.util._
+import scala.collection.mutable.*
+import scala.util.*
 
 object Comparing {
 
