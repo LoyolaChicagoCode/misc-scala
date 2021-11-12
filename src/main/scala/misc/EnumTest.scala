@@ -1,12 +1,12 @@
 package misc
 
 /*
-	Output:
+    Output:
 
-	WHITE
-	1627433763
-	1927526549
-	1147894048
+    WHITE
+    1627433763
+    1927526549
+    1147894048
 
  */
 object EnumTest {
