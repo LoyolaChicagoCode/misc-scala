@@ -1,5 +1,5 @@
 package misc
 
-class Super {
+class Super:
 
-}
+end Super

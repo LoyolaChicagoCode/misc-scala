@@ -1,6 +1,6 @@
 package objects
 
-object mainWithMethods {
+object mainWithMethods:
 
   /*
   class MyInt {
@@ -86,7 +86,7 @@ object mainWithMethods {
     Assignment(Variable("g"), Message(Variable("e"), "fact"))
   )
 
-  def main(args: Array[String]): Unit = {
+  def main(args: Array[String]): Unit =
     //    println(store)
     Execute(store)(c)
     //    println(store)
@@ -96,5 +96,5 @@ object mainWithMethods {
     println(store._1("e"))
     println(store._1("f"))
     println(store._1("g"))
-  }
-}
+  
+end mainWithMethods

@@ -5,23 +5,23 @@ import Execute.{Store, Value}
 /**
   * A cell for storing a value (either a number or an object).
   */
-case class Cell(var value: Value) {
+case class Cell(var value: Value):
   def get = value
   def set(value: Value) = { this.value = value; this }
-}
+end Cell
 
 /**
   * A companion object defining a useful Cell instance.
   */
-object Cell {
+object Cell:
   def apply(i: Int): Cell = Cell(Left(i)) // Left -> number, Right -> object
   val NULL: Cell = Cell(0)
-}
+end Cell
 
 /**
   * An interpreter for expressions and statements.
   */
-object Execute {
+object Execute:
 
   /**
     * A memory store is a mapping from variable names to storage cells.
@@ -38,7 +38,7 @@ object Execute {
     */
   type Value = Either[Int, Instance]
 
-  def apply(store: Store)(s: Statement): Cell = s match {
+  def apply(store: Store)(s: Statement): Cell = s match
     case Constant(value)    => Cell(Left(value))
     case Plus(left, right)  => binaryOperation(store, left, right, _ + _)
     case Minus(left, right) => binaryOperation(store, left, right, _ - _)
@@ -53,10 +53,9 @@ object Execute {
       statements.foldLeft(Cell.NULL)((c, s) => apply(store)(s))
     case While(guard, body) =>
       var gvalue = apply(store)(guard)
-      while gvalue.get.isRight || gvalue.get.left.toOption.get != 0 do {
+      while gvalue.get.isRight || gvalue.get.left.toOption.get != 0 do
         apply(store)(body)
         gvalue = apply(store)(guard)
-      }
       Cell.NULL
     case New(Clazz(fields @ _*)) =>
       // create an object based on the list of field names in the clazz
@@ -65,11 +64,11 @@ object Execute {
       // assume the expression evaluates to a record (.right)
       // and choose the desired field
       apply(store)(record).get.toOption.get.apply(field)
-  }
+  end apply
 
-  def binaryOperation(store: Store, left: Statement, right: Statement, operator: (Int, Int) => Int): Cell = {
+  def binaryOperation(store: Store, left: Statement, right: Statement, operator: (Int, Int) => Int): Cell =
     val l: Int = apply(store)(left).get.left.toOption.get
     val r: Int = apply(store)(right).get.left.toOption.get
     Cell(Left(operator(l, r)))
-  }
-}
+  
+end Execute

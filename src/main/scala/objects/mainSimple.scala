@@ -1,6 +1,6 @@
 package objects
 
-object mainSimple {
+object mainSimple:
 
   val studentCourseRecord = new Clazz("firstExamScore", "secondExamScore", "totalScore")
   val studentSemRecord = new Clazz("course1", "course2")
@@ -28,9 +28,9 @@ object mainSimple {
       Assignment(Selection(Selection(Variable("r"), "course1"), "firstExamScore"), Constant(45))
     )
 
-  def main(args: Array[String]): Unit = {
+  def main(args: Array[String]): Unit =
     println(store)
     Execute(store)(s)
     println(store)
-  }
-}
+  
+end mainSimple

@@ -1,6 +1,6 @@
 package objects
 
-object mainRecursive {
+object mainRecursive:
 
   val store: Execute.Store = (Map[String, Cell](
     "n" -> Cell(0),
@@ -51,9 +51,9 @@ object mainRecursive {
       )
     )
 
-  def main(args: Array[String]): Unit = {
+  def main(args: Array[String]): Unit =
     println(store)
     Execute(store)(s)
     println(store)
-  }
-}
+  
+end mainRecursive

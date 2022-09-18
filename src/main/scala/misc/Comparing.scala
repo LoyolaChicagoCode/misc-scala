@@ -3,9 +3,9 @@ package misc
 import scala.collection.mutable.*
 import scala.util.*
 
-object Comparing {
+object Comparing:
 
-  def main(args: Array[String]): Unit = {
+  def main(args: Array[String]): Unit =
     val t1 = new Temp
     t1.tt = 24
     val t2 = new Temp
@@ -31,13 +31,11 @@ object Comparing {
     l1 += t6
     println(l1)
 
-    val ascending = new Comparator[Temp] {
+    val ascending = new Comparator[Temp]:
       def compare(o1: Temp, o2: Temp) = o1.tt - o2.tt
-    }
 
-    val descending = new Comparator[Temp] {
+    val descending = new Comparator[Temp]:
       def compare(o1: Temp, o2: Temp) = o2.tt - o1.tt
-    }
 
     Sorting.quickSort(l1.toArray) //ascending
     println(l1)
@@ -61,9 +59,8 @@ object Comparing {
     t11.tt = 19
     s += t11
 
-    for c <- s do {
+    for c <- s do
       println(c)
-    }
 
     var l2 = new ArrayBuffer[Temp]
 
@@ -89,36 +86,31 @@ object Comparing {
     for c <- s2 do
       println(c)
     println(l1)
-  }
-}
+  end main
 
 //Should we be using a trait here? I feel that this should somehow be done
 //with functional programming...
-trait Comparator[Temp] {
+trait Comparator[Temp]:
   def compare(o1: Temp, o2: Temp): Int
-}
+end Comparator
 
-class Temp extends Ordered[Temp] {
+class Temp extends Ordered[Temp]:
   private var t = 0
   def tt = t
   def tt_=(newT: Int) = t = newT
 
   override def toString = super.toString() + "[t=" + t + "]"
 
-  override def equals(that: Any) = {
+  override def equals(that: Any) =
     this == that || that.isInstanceOf[Temp] && this.t == (that.asInstanceOf[Temp]).t
-  }
 
   override def hashCode = t
 
   def compare(that: Temp) = this.t - that.t
-}
+end Temp
 
-class CTemp(private var t: Int) extends Temp {
-
-  def compareTo(that: CTemp): Int = {
+class CTemp(private var t: Int) extends Temp:
+  def compareTo(that: CTemp): Int =
     if this == that then return 0
     this.t - that.t
-  }
-}
-
+end CTemp

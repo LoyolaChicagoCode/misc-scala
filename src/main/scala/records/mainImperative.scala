@@ -1,6 +1,6 @@
 package records
 
-object mainImperative {
+object mainImperative:
 
   val store = Map[String, Cell](
     "x" -> Cell(2),
@@ -17,9 +17,9 @@ object mainImperative {
       )
     )
 
-  def main(args: Array[String]): Unit = {
+  def main(args: Array[String]): Unit =
     println(store)
     Execute(store)(s)
     println(store)
-  }
-}
+  
+end mainImperative

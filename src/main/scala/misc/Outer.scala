@@ -1,5 +1,5 @@
 package misc
 
-class Outer {
+class Outer:
 
-}
+end Outer

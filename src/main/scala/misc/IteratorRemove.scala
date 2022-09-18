@@ -1,5 +1,5 @@
 package misc
 
-class IteratorRemove {
+class IteratorRemove:
 
-}
+end IteratorRemove

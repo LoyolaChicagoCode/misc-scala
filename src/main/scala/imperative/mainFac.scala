@@ -1,6 +1,6 @@
 package imperative
 
-object mainFac {
+object mainFac:
 
   val store = Map[String, Cell](
     "x" -> Cell(5),
@@ -20,9 +20,9 @@ object mainFac {
       )
     )
 
-  def main(args: Array[String]): Unit = {
+  def main(args: Array[String]): Unit =
     println(store)
     Execute(store)(s)
     println(store)
-  }
-}
+  
+end mainFac

@@ -1,5 +1,5 @@
 package misc
 
-class UnmodifiableCollections {
+class UnmodifiableCollections:
 
-}
+end UnmodifiableCollections

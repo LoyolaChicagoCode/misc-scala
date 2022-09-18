@@ -1,6 +1,6 @@
 package imperative
 
-object main {
+object main:
 
   /**
     * The global memory initialized as follows:
@@ -25,9 +25,9 @@ object main {
       )
     )
 
-  def main(args: Array[String]): Unit = {
+  def main(args: Array[String]): Unit =
     println(store)
     Execute(store)(s)
     println(store)
-  }
-}
+  
+end main

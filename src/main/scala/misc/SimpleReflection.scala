@@ -1,5 +1,5 @@
 package misc
 
-class SimpleReflection {
+class SimpleReflection:
 
-}
+end SimpleReflection

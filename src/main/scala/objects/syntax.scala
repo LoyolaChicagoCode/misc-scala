@@ -35,13 +35,13 @@ case class Assignment(left: Statement, right: Statement) extends BinaryStatement
   * sugar to make it look like a case class.
   */
 class New(val clazz: Clazz) extends Statement
-object New {
+object New:
   def apply(clazz: Clazz) = new New(clazz)
-  def unapply(s: Statement) = s match {
+  def unapply(s: Statement) = s match
     case n: New => Some(n.clazz)
     case _      => None
-  }
-}
+end New
+
 case class Selection(receiver: Statement, field: String) extends Statement
 case class Message(receiver: Statement, method: String, arguments: Statement*) extends Statement
 
@@ -51,6 +51,6 @@ case class Message(receiver: Statement, method: String, arguments: Statement*) e
   * Note that methods are defined in terms of their local variables
   * and their body; arguments are numbered instead of named.
   */
-case class Clazz(fields: Seq[String], methods: Seq[(String, (Seq[String], Statement))]) {
+case class Clazz(fields: Seq[String], methods: Seq[(String, (Seq[String], Statement))]):
   def this(fields: String*) = this(fields, Seq())
-}
+end Clazz
