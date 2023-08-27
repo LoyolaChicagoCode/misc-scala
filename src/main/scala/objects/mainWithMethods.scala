@@ -1,5 +1,7 @@
 package objects
 
+// FIXME investigate stack overflow
+
 object mainWithMethods:
 
   /*
