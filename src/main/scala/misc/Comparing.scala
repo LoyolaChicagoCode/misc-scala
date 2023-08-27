@@ -102,7 +102,7 @@ class Temp extends Ordered[Temp]:
   override def toString = super.toString() + "[t=" + t + "]"
 
   override def equals(that: Any) =
-    this == that || that.isInstanceOf[Temp] && this.t == (that.asInstanceOf[Temp]).t
+    that.isInstanceOf[AnyRef] && this.eq(that.asInstanceOf[AnyRef]) || that.isInstanceOf[Temp] && this.t == (that.asInstanceOf[Temp]).t
 
   override def hashCode = t
 
@@ -111,6 +111,6 @@ end Temp
 
 class CTemp(private var t: Int) extends Temp:
   def compareTo(that: CTemp): Int =
-    if this == that then return 0
+    if this.eq(that) then return 0
     this.t - that.t
 end CTemp

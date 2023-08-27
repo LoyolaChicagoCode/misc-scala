@@ -12,7 +12,7 @@ end Animal
 
 trait Mammal extends Animal:
   def printName = print("My name is " + name)
-  def canMate(a: Animal) = a.getClass == this.getClass
+  def canMate(a: Animal) = a.getClass.eq(this.getClass)
   def birth = print("live")
   def birth(n: Int) = print("live" + n)
 end Mammal
