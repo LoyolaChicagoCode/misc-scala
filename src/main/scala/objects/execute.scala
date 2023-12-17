@@ -51,7 +51,7 @@ object Execute:
       val rvalue = apply(store)(right)
       val lvalue = apply(store)(left)
       lvalue.set(rvalue.get)
-    case Sequence(statements @ _*) =>
+    case Sequence(statements*) =>
       statements.foldLeft(Cell.NULL)((c, s) => apply(store)(s))
     case While(guard, body) =>
       var gvalue = apply(store)(guard)
@@ -61,14 +61,14 @@ object Execute:
       Cell.NULL
     case New(Clazz(fields, methods)) =>
       // create an object based on the list of field names and methods
-      val fs = Map(fields.map(field => (field, Cell(0))): _*)
-      val ms = Map(methods: _*)
+      val fs = Map(fields.map(field => (field, Cell(0)))*)
+      val ms = Map(methods*)
       Cell(Right((fs, ms)))
     case Selection(receiver, field) =>
       // assume the expression evaluates to a record (.right)
       // and choose the desired field
       apply(store)(receiver).get.toOption.get._1(field)
-    case Message(receiver, method, arguments @ _*) =>
+    case Message(receiver, method, arguments*) =>
       // evaluate receiver expression to a Cell containing an Instance
       val rec = apply(store)(receiver)
       // look up method in the Instance's second component (method table)

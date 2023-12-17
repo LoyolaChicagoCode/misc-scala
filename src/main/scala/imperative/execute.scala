@@ -27,7 +27,7 @@ object Execute:
       val rvalue = apply(store)(right)
       val lvalue = apply(store)(left)
       lvalue.set(rvalue.get)
-    case Sequence(statements @ _*) =>
+    case Sequence(statements*) =>
       statements.foldLeft(Cell.NULL.asInstanceOf[Cell])((c, s) => apply(store)(s))
     case While(guard, body) =>
       var gvalue = apply(store)(guard)

@@ -49,7 +49,7 @@ object Execute:
       val rvalue = apply(store)(right)
       val lvalue = apply(store)(left)
       lvalue.set(rvalue.get)
-    case Sequence(statements @ _*) =>
+    case Sequence(statements*) =>
       statements.foldLeft(Cell.NULL)((c, s) => apply(store)(s))
     case While(guard, body) =>
       var gvalue = apply(store)(guard)
@@ -57,9 +57,9 @@ object Execute:
         apply(store)(body)
         gvalue = apply(store)(guard)
       Cell.NULL
-    case New(Clazz(fields @ _*)) =>
+    case New(Clazz(fields*)) =>
       // create an object based on the list of field names in the clazz
-      Cell(Right(Map(fields.map(field => (field, Cell(0))): _*)))
+      Cell(Right(Map(fields.map(field => (field, Cell(0)))*)))
     case Selection(record, field) =>
       // assume the expression evaluates to a record (.right)
       // and choose the desired field
